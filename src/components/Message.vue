@@ -1,5 +1,5 @@
 <template>
-  <div class="message_item">
+  <div class="message_item" @click="favouriteMessage(message.id)">
     <div class="user-profile_message">
       <div class="message-item_user">@{{ username }}
       </div>
@@ -23,6 +23,11 @@ export default {
       required: true,
     },
   },
+  methods:{
+      favouriteMessage(id){
+          this.$emit("favourite",id)
+      }
+  }
 };
 </script>
 

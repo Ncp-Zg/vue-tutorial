@@ -11,7 +11,7 @@
     </div>
     <div class="user-profile_messages-wrapper">
       <div class="user-profile_messages">
-        <Message v-for="message in user.messages" :key="message.id" :username="user.username" :message="message"/>
+        <Message v-for="message in user.messages" :key="message.id" :username="user.username" :message="message" @favourite="toggleFavourite"/>
       </div>
     </div>
   </div>
@@ -60,6 +60,9 @@ export default {
     followUser() {
       this.followers++;
     },
+    toggleFavourite(id){
+      console.log(`favourited message ${id} `)
+    }
   },
   mounted() {
     this.followUser();
@@ -92,6 +95,10 @@ export default {
   padding:0 10px;
   font-weight: bold;
 
+}
+
+.user-profile_messages{
+  margin-right:15%
 }
 h1 {
   margin: 0;
